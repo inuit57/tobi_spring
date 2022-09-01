@@ -11,12 +11,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SimTest {
 
-    @Getter
+//    @Getter
     static class TestList{
         private List<String> strings = new ArrayList<>();
 
         public TestList(List<String> names){
             this.strings = new ArrayList<String>(names);
+        }
+
+        // 새로 만든 getter
+        public List<String> getStrings(){
+            return new ArrayList<>(strings);
         }
     }
 
@@ -36,8 +41,8 @@ public class SimTest {
         copyList.clear(); // 복사가 아니라서 원본에 영향을 준다.
 
         // 원본이 손상되었다.
-        assertThat(tl.getStrings()).doesNotContain("abc");
-
+//        assertThat(tl.getStrings()).doesNotContain("abc");
+        assertThat(tl.getStrings()).contains("abc");
 
     }
 }
