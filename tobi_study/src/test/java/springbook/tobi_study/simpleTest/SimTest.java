@@ -16,13 +16,22 @@ public class SimTest {
         private List<String> strings = new ArrayList<>();
 
         public TestList(List<String> names){
-            this.strings = new ArrayList<String>(names);
+            if( names != null) {
+                this.strings = new ArrayList<String>(names);
+            }
         }
 
         // 새로 만든 getter
         public List<String> getStrings(){
             return new ArrayList<>(strings);
         }
+    }
+
+    @Test
+    void nullList(){
+        TestList tl = new TestList(null);
+
+        System.out.println(tl.getStrings());
     }
 
     @Test
