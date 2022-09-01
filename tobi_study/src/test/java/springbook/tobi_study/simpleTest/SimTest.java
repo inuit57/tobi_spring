@@ -3,6 +3,7 @@ package springbook.tobi_study.simpleTest;
 import lombok.Getter;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,5 +54,30 @@ public class SimTest {
 //        assertThat(tl.getStrings()).doesNotContain("abc");
         assertThat(tl.getStrings()).contains("abc");
 
+    }
+
+
+    @Test
+    void prefixTest(){
+
+        String field = "TEST";
+        String values = "aaa,bbb,ccc";
+
+        System.out.println(getPrefix(field,values));
+    }
+
+    private String getPrefix(String field, String values) {
+        if(!StringUtils.hasText(values)) return "";
+
+        StringBuilder prefix_condition = new StringBuilder();
+        String[] list = values.split(",");
+        prefix_condition.append("<"+field+":contains:");
+        for (String value : list) {
+            prefix_condition.append(value + "|");
+
+        }
+        System.out.println(prefix_condition);
+
+        return prefix_condition.append(">").toString();
     }
 }
