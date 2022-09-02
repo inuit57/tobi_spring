@@ -56,6 +56,17 @@ public class SimTest {
 
     }
 
+    @Test
+    void listCopy2(){
+        List<String> list01 = new ArrayList<>(); // null
+        List<String> list02 = new ArrayList<>();
+
+        // null 에러가 터진다.
+        for(int i=0; i< list01.size() ; i++){
+            list02.add(list01.get(i));
+        }
+    }
+
 
     @Test
     void prefixTest(){
