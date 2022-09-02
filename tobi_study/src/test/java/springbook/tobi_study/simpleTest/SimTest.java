@@ -61,6 +61,8 @@ public class SimTest {
         List<String> list01 = new ArrayList<>(); // null
         List<String> list02 = new ArrayList<>();
 
+//        list02.addAll(null);
+
         // null 에러가 터진다.
         for(int i=0; i< list01.size() ; i++){
             list02.add(list01.get(i));
